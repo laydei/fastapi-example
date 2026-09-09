@@ -2,7 +2,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 class Settings(BaseSettings):
     database_hostname: str
-    database_port: int
+    database_port: int  # Ensure integer types are correctly annotated
     database_password: str
     database_name: str
     database_username: str
@@ -12,20 +12,7 @@ class Settings(BaseSettings):
 
     model_config = SettingsConfigDict(
         env_file=".env",
-        env_file_encoding="utf-8",
-        extra="ignore",  # Ignore unmapped system environment variables
+        case_sensitive=True  # Fixes case-insensitive matching with system PATH
     )
-
-    @classmethod
-    def settings_customise_sources(
-        cls,
-        settings_cls,
-        init_settings,
-        env_settings,
-        dotenv_settings,
-        file_secret_settings,
-    ):
-        # Prioritize .env file over macOS system environment variables (os.environ)
-        return (dotenv_settings, env_settings, init_settings)
 
 settings = Settings()

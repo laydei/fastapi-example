@@ -28,7 +28,7 @@ class Post(PostBase):
     class Config:
      from_attributes = True
 
-class PostOut(BaseModel):
+class PostOut(PostBase):
     Post: Post
     votes: int
 
