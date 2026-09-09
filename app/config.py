@@ -2,7 +2,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 class Settings(BaseSettings):
     database_hostname: str
-    database_port: int  # Ensure integer types are correctly annotated
+    database_port: int
     database_password: str
     database_name: str
     database_username: str
@@ -12,7 +12,7 @@ class Settings(BaseSettings):
 
     model_config = SettingsConfigDict(
         env_file=".env",
-        case_sensitive=True  # Fixes case-insensitive matching with system PATH
+        extra="ignore"
     )
 
 settings = Settings()
