@@ -6,3 +6,5 @@ dependencies = [
     "sqlmodel>=0.0.39",
     "pydantic-settings>=2.0",
 ]
+[tool.setuptools.packages.find]
+include = ["app*"]
