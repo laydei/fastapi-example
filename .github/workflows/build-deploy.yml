@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: pulling get repo
-        uses: actions/checkout@4
+        uses: actions/checkout@v4  
       - name: say hi to ld
         run: echo "hello ld"
 
