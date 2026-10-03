@@ -121,4 +121,4 @@ def test_update_post_non_exist(authorized_client, test_user, test_posts):
          }
     res = authorized_client.put(
         f"/posts/888888", json=data)
-    assert res.status_code == 401
+    assert res.status_code == 404
