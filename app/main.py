@@ -25,4 +25,4 @@ app.include_router(vote.router)
 
 @app.get("/")
 def output():
-    return {"message": "Welcome User 11"} 
+    return {"message": "Welcome User ubuntu pusher"} 
